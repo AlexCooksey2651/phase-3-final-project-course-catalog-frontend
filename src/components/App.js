@@ -9,24 +9,24 @@ import Home from "./Home";
 
 function App() {
   return (
-    <div className = "App" >
-            <Header />
-            <NavBar />
-            <Switch >
-              <Route exact path="/students">
-                <StudentContainer />
-              </Route>
-              <Route exact path="/courses">
-                <CourseContainer />
-              </Route>
-              <Route exact path="/departments">
-                <DepartmentContainer />
-              </Route>
-              <Route exact path="/">
-                <Home />
-              </Route>
-            </Switch>
-        </div>
+      <div className = "App" >
+          <Header />
+          <NavBar />
+          <Switch >
+            <Route exact path="/students">
+              <StudentContainer />
+            </Route>
+            <Route exact path="/courses">
+              <CourseContainer />
+            </Route>
+            <Route exact path="/departments">
+              <DepartmentContainer />
+            </Route>
+            <Route exact path="/">
+              <Home />
+            </Route>
+          </Switch>
+      </div>
   );
 }
 
