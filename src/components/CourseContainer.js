@@ -3,6 +3,7 @@ import Course from "./Course";
 
 function CourseContainer() {
     const [courses, setCourses] = useState([])
+    const [deptOrder, setDeptOrder] = useState(true)
     
     useEffect(() => {
         fetch('http://localhost:9292/courses')
@@ -17,17 +18,26 @@ function CourseContainer() {
     })
 
     function sortByDepartment() {
-        console.log('hello')
         const sortedCourses = [...courses].sort((a, b) => {
             let deptA = a.department.name
             let deptB = b.department.name
-            if (deptA < deptB) {
-                return -1
-            } else if (deptA > deptB) {
-                return 1
+            if (deptOrder === true) {
+                if (deptA < deptB) {
+                    return -1
+                } else if (deptA > deptB) {
+                    return 1
+                }
+                return 0
+            } else if (deptOrder === false) {
+                if (deptA < deptB) {
+                    return 1
+                } else if (deptA > deptB) {
+                    return -1
+                }
+                return 0
             }
-            return 0
         })
+        setDeptOrder(!deptOrder)
         setCourses(sortedCourses)
     }
     
