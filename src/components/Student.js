@@ -2,6 +2,11 @@ import React from "react";
 
 function Student({ student }) {
     const { id, first_name, last_name, class_year, student_courses } = student
+    
+    function handleDeleteStudent(event) {
+        console.log(event.target.parentNode)
+    }
+
     return (
         <div className="studentCard">
             <h3>Name: {first_name} {last_name}</h3>
@@ -34,6 +39,7 @@ function Student({ student }) {
                     </li>
                 </ul>
             </div>
+            <button type="button" onClick={handleDeleteStudent}>Delete Student</button>
         </div>
     )
 }
