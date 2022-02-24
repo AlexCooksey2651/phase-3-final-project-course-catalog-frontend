@@ -5,9 +5,44 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/96a6e381769399.5d096fa30e358.jpg")
 }
 
-code {
+/* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+} */
+
+#header {
+  text-align: center;
+  color: black;
+  width: 80%;
+  background-color: antiquewhite;
+  margin: auto;
+}
+
+#navBar {
+  text-align: center;
+  background-color: burlywood;
+  width: 80%;
+  height: 50px;
+  margin: auto;
+  border: solid black 1px;
+}
+
+#home, #studentContainer, #courseContainer, #departmentContainer {
+  background-color: moccasin;
+  width: 77.5%;
+  text-align: center;
+  margin: auto;
+  padding: 20px
+}
+
+.studentCard, .courseCard, .departmentCard {
+  text-align: left;
+  width: 80%;
+  margin: 20px auto;
+  border: solid lightsalmon 1px;
+  padding: 10px;
+  border-radius: 4px;
 }
