@@ -1,16 +1,35 @@
 import React, { useState } from 'react'
 
-function AddStudentForm() {
+function AddStudentForm({ handleNewStudent }) {
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
   const [classYear, setClassYear] = useState("")
 
+  const body = {
+      first_name: firstName,
+      last_name: lastName,
+      class_year: classYear
+  }
+
   function addNewStudent(event) {
       event.preventDefault()
-      console.log('hello')
+      fetch("http://localhost:9292/students", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    })
+      .then(response => response.json())
+      .then(newStudent => {
+        handleNewStudent(newStudent);
+        setFirstName("");
+        setLastName("");
+        setClassYear("")
+      });
   }
   return (
-    <form onSubmit={addNewStudent}>
+    <form id="addStudentForm" onSubmit={addNewStudent}>
         <label for="first_name">First Name:</label>
             <input required
                 type="text"

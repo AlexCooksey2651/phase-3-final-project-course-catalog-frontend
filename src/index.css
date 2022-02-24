@@ -48,15 +48,20 @@ body {
   border: solid lightsalmon 1px;
   padding: 10px 30px;
   border-radius: 4px;
+  background-color: moccasin;
 }
 
 .departmentCard {
   text-align: center;
   width: 60%;
   margin: 20px auto;
-  border: solid lightsalmon 1px;
+  border: solid lightsalmon 4px;
   padding: 10px;
   border-radius: 4px;
+}
+
+#studentContainer {
+  background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/39cb06a2-39b2-4b54-8efa-c294fab1e52c/ddumeg9-af81320c-fba3-4dbb-af44-7bfcd61f2bb5.jpg/v1/fill/w_5000,h_2813,q_75,strp/151_pokemon_wallpaper_by_drums107_ddumeg9-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjgxMyIsInBhdGgiOiJcL2ZcLzM5Y2IwNmEyLTM5YjItNGI1NC04ZWZhLWMyOTRmYWIxZTUyY1wvZGR1bWVnOS1hZjgxMzIwYy1mYmEzLTRkYmItYWY0NC03YmZjZDYxZjJiYjUuanBnIiwid2lkdGgiOiI8PTUwMDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.cR6bbHgUn3vFyXPghMN-i8cXkfCcmJtvRpqlZHtD9fU");
 }
 
 .courseList h4 {
@@ -67,17 +72,22 @@ body {
   width: 300px;
   margin: 30px;
   display: inline;
-  padding: 50px;
+  padding: 5px;
   font-size: 1.5em;
+  color: white;
+  background-color: darkslategray
 }
 
-#deptSortBtn {
+#deptSortBtn, 
+#titleSortBtn, 
+#enrollmentSortBtn {
   height: 50px;
   width: 250px;
   font-size: 1.5em;
   background-color: darkslategray;
   color: white;
   border-radius: 3%;
+  margin: 0px 10px 
 }
 
 #home p {
@@ -96,8 +106,21 @@ body {
   height: 30px;
   width: 300px;
   font-size: 1.0em;
+  padding: 5px;
 }
 
 .classYearFilter {
   font-size: 1.5em;
+  color: white;
+  background-color: darkslategray;
+  padding: 5px;
+}
+
+#addStudentForm {
+  font-size: 1.5em;
+  color: white;
+  background-color: darkslategray;
+  padding: 10px;
+  width: 30%;
+  margin: auto;
 }
