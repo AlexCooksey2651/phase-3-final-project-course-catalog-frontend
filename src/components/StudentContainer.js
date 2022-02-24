@@ -14,20 +14,16 @@ function StudentContainer() {
             .then(students => setStudents(students))
     }, [])
 
-    function handleNewStudent(newStudent) {
-        setStudents([...students, newStudent])
+    const filteredStudents = () => {
+        if (selectedYear !== "") {
+            return students.filter(student => {
+                console.log(student.class_year)
+                console.log(selectedYear)
+                return student.class_year === selectedYear
+            })
+        }
+        return students
     }
-
-    // const filteredStudents = () => {
-    //     if (selectedYear !== "") {
-    //         return students.filter(student => {
-    //             console.log(student.class_year)
-    //             console.log(selectedYear)
-    //             return student.class_year === selectedYear
-    //         })
-    //     }
-    //     return students
-    // }
 
     const searchedStudents = students.filter(student => {
         if (student.first_name.toLowerCase().includes(searchText) || student.last_name.toLowerCase().includes(searchText)) {
@@ -37,12 +33,23 @@ function StudentContainer() {
     
     const studentCards = searchedStudents.map(student => {
         return (
-            <Student key={student.id} student={student} />
+            <Student key={student.id} student={student} onDeleteStudent={onDeleteStudent}/>
         )
     })
 
     function showNewStudentForm() {
         return setShowForm(!showForm)
+    }
+
+    function handleNewStudent(newStudent) {
+        setStudents([...students, newStudent])
+    }
+
+    function onDeleteStudent(deletedId) {
+        const remainingStudents = students.filter(student => {
+            return student.id !== deletedId
+        })
+        setStudents(remainingStudents)
     }
 
     return (
@@ -53,13 +60,13 @@ function StudentContainer() {
             </div>
             <br />
             <br />
-            {/* <label className="classYearFilter">Select Class Year:</label>
+            <label className="classYearFilter">Select Class Year:</label>
             <select className="classYearFilter" name="class_year" onChange={e => setSelectedYear(e.target.value)}>
                 <option value="2022">2022</option>
                 <option value="2023">2023</option>
                 <option value="2024">2024</option>
                 <option value="2025">2025</option>
-            </select> */}
+            </select>
             <br/>
             <br/>
             <button id="addStudentBtn" type="button" onClick={showNewStudentForm}>Add New Student</button>

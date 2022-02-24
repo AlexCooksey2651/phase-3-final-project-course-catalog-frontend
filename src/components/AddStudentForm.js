@@ -13,21 +13,22 @@ function AddStudentForm({ handleNewStudent }) {
 
   function addNewStudent(event) {
       event.preventDefault()
-      fetch("http://localhost:9292/students", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body),
-    })
-      .then(response => response.json())
-      .then(newStudent => {
-        handleNewStudent(newStudent);
-        setFirstName("");
-        setLastName("");
-        setClassYear("")
-      });
+        fetch("http://localhost:9292/students", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(body),
+        })
+            .then(response => response.json())
+            .then(newStudent => {
+                handleNewStudent(newStudent);
+                setFirstName("");
+                setLastName("");
+                setClassYear("")
+            });
   }
+
   return (
     <form id="addStudentForm" onSubmit={addNewStudent}>
         <label for="first_name">First Name:</label>
@@ -59,4 +60,4 @@ function AddStudentForm({ handleNewStudent }) {
   )
 }
 
-export default AddStudentForm
+export default AddStudentForm;

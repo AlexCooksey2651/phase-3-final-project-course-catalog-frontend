@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import EditStudentForm from "./EditStudentForm";
 
-function Student({ student }) {
+function Student({ student, onDeleteStudent }) {
     const { id, first_name, last_name, class_year, student_courses } = student
     const [isEditing, setIsEditing] = useState(false)
     
@@ -11,7 +11,10 @@ function Student({ student }) {
     }
 
     function handleDeleteStudent(event) {
-        console.log(event.target.parentNode)
+        fetch(`http://localhost:9292/students/${id}`, {
+            method: "DELETE",
+        })
+        onDeleteStudent(id)
     }
 
     return (
