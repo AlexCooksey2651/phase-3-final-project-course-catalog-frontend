@@ -8,10 +8,10 @@ function DepartmentCourseList ({courses}) {
     const courseList = courseTitles.join(', ')
 
     return (
-        <div>
+        <div className="courseList">
             <br />
             <h2><b>Available Courses:</b></h2>
-            <h3>{courseList}</h3>
+            <h4>{courseList}</h4>
         </div>
     )
 }

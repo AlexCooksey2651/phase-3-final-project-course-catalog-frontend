@@ -41,13 +41,35 @@ body {
   padding: 20px
 }
 
-.studentCard, .courseCard, .departmentCard {
+.studentCard, .courseCard {
   text-align: left;
   width: 80%;
   margin: 20px auto;
   border: solid lightsalmon 1px;
   padding: 10px;
   border-radius: 4px;
+}
+
+.departmentCard {
+  text-align: center;
+  width: 60%;
+  margin: 20px auto;
+  border: solid lightsalmon 1px;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.showCoursesBtn {
+  background-color: darkslategray;
+  color: white;
+  border-radius: 3%;
+  height: 30px;
+  width: 150px;
+  font-size: 1.0em;
+}
+
+.courseList h4 {
+  font-size: 1.2em;
 }
 
 #studentSearch {
@@ -58,7 +80,7 @@ body {
   font-size: 1.0em;
 }
 
-#deptSort {
+#deptSortBtn {
   height: 50px;
   width: 250px;
   font-size: 1.5em;
