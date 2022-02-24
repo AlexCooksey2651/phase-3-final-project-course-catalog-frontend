@@ -13,7 +13,7 @@ function Department ({ department }) {
 
     return (
         <div className="departmentCard">
-            <h2>{name}</h2>
+            <h1>{name}</h1>
             <button onClick={() => setShowCourseList(!showCourseList)}>Show Course List</button>
             {showCourseList ? <CourseList courses={courses} /> : null}
             {/* <div>

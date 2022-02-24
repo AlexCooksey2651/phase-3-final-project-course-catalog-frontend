@@ -7,38 +7,29 @@ function AddStudentForm() {
 
   return (
     <form>
-        <label>
-            First Name:
-            <br />
+        <label for="first_name">First Name:</label>
             <input required
                 type="text"
                 name="first_name"
                 value={firstName}
                 onChange={e => setFirstName(e.target.value)}
             />
-        </label>
         <br/>
-        <label>
-            Last Name:
-            <br />
+        <label for="last_name">Last Name:</label>
             <input required
                 type="text"
                 name="last_name"
                 value={lastName}
                 onChange={e => setLastName(e.target.value)}
             />
-        </label>
         <br/>
-        <label>
-            Class Year:
-            <br />
+        <label for="class_year">Class Year:</label>
             <input required
                 type="number"
                 name="class_year"
                 value={classYear}
                 onChange={e => setClassYear(e.target.value)}
             />
-        </label>
     </form>
   )
 }

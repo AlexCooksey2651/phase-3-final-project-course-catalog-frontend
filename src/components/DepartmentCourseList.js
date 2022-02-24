@@ -9,9 +9,9 @@ function DepartmentCourseList ({courses}) {
 
     return (
         <div>
-            <b>Available Courses:</b>
-            <br/>
-            {courseList}
+            <br />
+            <h2><b>Available Courses:</b></h2>
+            <h3>{courseList}</h3>
         </div>
     )
 }

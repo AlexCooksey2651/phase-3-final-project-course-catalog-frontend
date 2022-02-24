@@ -43,7 +43,7 @@ function CourseContainer() {
     
     return (
         <div id="courseContainer">
-            <button onClick={sortByDepartment}>Sort By Department</button>
+            <button id="deptSort" onClick={sortByDepartment}>Sort By Department</button>
             {courseCards}
         </div>
     )

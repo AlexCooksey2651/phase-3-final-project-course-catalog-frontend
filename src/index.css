@@ -19,15 +19,18 @@ body {
   width: 80%;
   background-color: antiquewhite;
   margin: auto;
+  font-size: 2.0em;
+  font-family:Verdana, Geneva, Tahoma, sans-serif
 }
 
 #navBar {
   text-align: center;
   background-color: burlywood;
   width: 80%;
-  height: 50px;
+  height: 70px;
   margin: auto;
   border: solid black 1px;
+  font-size: 1.5em;
 }
 
 #home, #studentContainer, #courseContainer, #departmentContainer {
@@ -45,4 +48,26 @@ body {
   border: solid lightsalmon 1px;
   padding: 10px;
   border-radius: 4px;
+}
+
+#studentSearch {
+  width: 300px;
+  margin: 30px;
+  display: inline;
+  padding: 50px;
+  font-size: 1.0em;
+}
+
+#deptSort {
+  height: 50px;
+  width: 250px;
+  font-size: 1.5em;
+  background-color: darkslategray;
+  color: white;
+  border-radius: 3%;
+}
+
+#home p {
+  font-size: 1.2em;
+  margin: 40px
 }

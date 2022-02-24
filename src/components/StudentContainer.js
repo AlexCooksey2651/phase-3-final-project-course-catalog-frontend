@@ -44,10 +44,12 @@ function StudentContainer() {
 
     return (
         <div id="studentContainer">
-            <label for="studentSearch">Search Student By Name</label>
-            <input type="text" onChange={(event) => setSearchText(event.target.value)}/>
+            <div id="studentSearch">
+                <label for="studentSearch">Search Student By Name:</label>
+                <input type="text" onChange={(event) => setSearchText(event.target.value)}/>
+            </div>
             <br />
-            
+            <br />
             {/* <label for="class_year">Select Class Year:</label>
             <select name="class_year" id="class_year_filter" onChange={e => setSelectedYear(e.target.value)}>
                 <option value="2022">2022</option>
