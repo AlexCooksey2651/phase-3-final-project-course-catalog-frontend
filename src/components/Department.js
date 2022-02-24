@@ -1,22 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
+import CourseList from "./DepartmentCourseList"
 
 function Department ({ department }) {
     const { id, name, courses } = department
+    const [showCourseList, setShowCourseList] = useState(false)
     
     let courseTitles = []
     courses.map(course => {
         courseTitles.push(course["title"])
     })
-    let courseList = courseTitles.join(', ')
+    const courseList = courseTitles.join(', ')
+
     return (
         <div className="departmentCard">
             <h2>{name}</h2>
-            <div>
+            <button onClick={() => setShowCourseList(!showCourseList)}>Show Course List</button>
+            {showCourseList ? <CourseList courses={courses} /> : null}
+            {/* <div>
                 <b>Courses:</b>
                 <br/>
-                {courseList}
-            </div>
-            
+                {showCourseList ? courseList : null }
+            </div>  */}
         </div>
     )
 }
