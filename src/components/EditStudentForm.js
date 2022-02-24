@@ -1,16 +1,12 @@
 import React, { useState } from 'react'
 
-function AddStudentForm() {
-  const [firstName, setFirstName] = useState("")
-  const [lastName, setLastName] = useState("")
-  const [classYear, setClassYear] = useState("")
+function EditStudentForm({ student }) {
+  const [firstName, setFirstName] = useState(student.first_name)
+  const [lastName, setLastName] = useState(student.last_name)
+  const [classYear, setClassYear] = useState(student.class_year)
 
-  function addNewStudent(event) {
-      event.preventDefault()
-      console.log('hello')
-  }
   return (
-    <form onSubmit={addNewStudent}>
+    <form>
         <label for="first_name">First Name:</label>
             <input required
                 type="text"
@@ -35,9 +31,9 @@ function AddStudentForm() {
                 onChange={e => setClassYear(e.target.value)}
             />
         <br/>
-        <button type="submit">Submit</button>
+        <button className="updateStudentBtn" type="submit">Confirm Updated Student Information</button>
     </form>
   )
 }
 
-export default AddStudentForm
+export default EditStudentForm

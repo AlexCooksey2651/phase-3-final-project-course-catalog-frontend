@@ -1,21 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
+import EditStudentForm from "./EditStudentForm";
 
 function Student({ student }) {
     const { id, first_name, last_name, class_year, student_courses } = student
+    const [isEditing, setIsEditing] = useState(false)
     
+    function showEditStudentForm(event) {
+        console.log(event.target.parentNode)
+        setIsEditing(!isEditing)
+    }
+
     function handleDeleteStudent(event) {
         console.log(event.target.parentNode)
     }
 
     return (
         <div className="studentCard">
-            <h3>Name: {first_name} {last_name}</h3>
-            <h4>Class Year: {class_year}</h4>
+            <h2>Name: {first_name} {last_name}</h2>
+            <h3>Class Year: {class_year}</h3>
             <div>
-                <p>Courses:</p>
+                <h4>Courses:</h4>
                 <ul>
                     <li>
-                        {student_courses[0]["course"]["title"]}
+                        {student_courses[0]["course"]["title"]}, 
                         <br />
                         Grade: {student_courses[0]["grade"]} %
                     </li>
@@ -39,7 +46,11 @@ function Student({ student }) {
                     </li>
                 </ul>
             </div>
-            <button type="button" onClick={handleDeleteStudent}>Delete Student</button>
+            <button className="editStudentBtn" type="button" onClick={showEditStudentForm}>{isEditing? "Done Editing" : "Edit Student Information"}</button>
+            {isEditing? <EditStudentForm student={student}/> : null}
+            <br/>
+            <br/>
+            <button className="deleteStudentBtn" type="button" onClick={handleDeleteStudent}>Delete Student</button>
         </div>
     )
 }

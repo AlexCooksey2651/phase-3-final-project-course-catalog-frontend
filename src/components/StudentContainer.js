@@ -6,7 +6,7 @@ function StudentContainer() {
     const [students, setStudents] = useState([])
     const [showForm, setShowForm] = useState(false)
     const [searchText, setSearchText] = useState("")
-    // const [selectedYear, setSelectedYear] = useState('')
+    const [selectedYear, setSelectedYear] = useState("")
 
     useEffect(() => {
         fetch('http://localhost:9292/students')
@@ -15,11 +15,16 @@ function StudentContainer() {
     }, [])
 
     
-    // const displayedStudents = students.filter(student => {
-    //     if (student.class_year === selectedYear) {
-    //         return student
-    //     }
-    // })
+    const filteredStudents = () => {
+        if (selectedYear !== "") {
+            return students.filter(student => {
+                console.log(student.class_year)
+                console.log(selectedYear)
+                return student.class_year === selectedYear
+            })
+        }
+        return students
+    }
 
     const searchedStudents = students.filter(student => {
         if (student.first_name.toLowerCase().includes(searchText) || student.last_name.toLowerCase().includes(searchText)) {
@@ -33,12 +38,7 @@ function StudentContainer() {
         )
     })
 
-    
-    
-    
-
     function showNewStudentForm() {
-        console.log('hello')
         return setShowForm(!showForm)
     }
 
@@ -46,18 +46,21 @@ function StudentContainer() {
         <div id="studentContainer">
             <div id="studentSearch">
                 <label for="studentSearch">Search Student By Name:</label>
-                <input type="text" onChange={(event) => setSearchText(event.target.value)}/>
+                <input type="text" placeholder="Enter Name Here" onChange={(event) => setSearchText(event.target.value)}/>
             </div>
             <br />
             <br />
-            {/* <label for="class_year">Select Class Year:</label>
-            <select name="class_year" id="class_year_filter" onChange={e => setSelectedYear(e.target.value)}>
+            <label className="classYearFilter">Select Class Year:</label>
+            <select className="classYearFilter" name="class_year" onChange={e => setSelectedYear(e.target.value)}>
                 <option value="2022">2022</option>
                 <option value="2023">2023</option>
                 <option value="2024">2024</option>
                 <option value="2025">2025</option>
-            </select> */}
-            <button type="button" onClick={showNewStudentForm}>Add New Student</button>
+            </select>
+            <br/>
+            <br/>
+            <button id="addStudentBtn" type="button" onClick={showNewStudentForm}>Add New Student</button>
+            <br/>
             {showForm ? <AddStudentForm /> : null }
             {studentCards}
         </div>

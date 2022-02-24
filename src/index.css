@@ -46,7 +46,7 @@ body {
   width: 80%;
   margin: 20px auto;
   border: solid lightsalmon 1px;
-  padding: 10px;
+  padding: 10px 30px;
   border-radius: 4px;
 }
 
@@ -59,15 +59,6 @@ body {
   border-radius: 4px;
 }
 
-.showCoursesBtn {
-  background-color: darkslategray;
-  color: white;
-  border-radius: 3%;
-  height: 30px;
-  width: 150px;
-  font-size: 1.0em;
-}
-
 .courseList h4 {
   font-size: 1.2em;
 }
@@ -77,7 +68,7 @@ body {
   margin: 30px;
   display: inline;
   padding: 50px;
-  font-size: 1.0em;
+  font-size: 1.5em;
 }
 
 #deptSortBtn {
@@ -92,4 +83,21 @@ body {
 #home p {
   font-size: 1.2em;
   margin: 40px
+}
+
+#addStudentBtn, 
+.editStudentBtn, 
+.deleteStudentBtn, 
+.updateStudentBtn,
+.showCoursesBtn {
+  background-color: darkslategray;
+  color: white;
+  border-radius: 3%;
+  height: 30px;
+  width: 300px;
+  font-size: 1.0em;
+}
+
+.classYearFilter {
+  font-size: 1.5em;
 }
