@@ -15,9 +15,25 @@ function CourseContainer() {
             <Course key={course.id} course={course} />
         )
     })
+
+    function sortByDepartment() {
+        console.log('hello')
+        const sortedCourses = [...courses].sort((a, b) => {
+            let deptA = a.department.name
+            let deptB = b.department.name
+            if (deptA < deptB) {
+                return -1
+            } else if (deptA > deptB) {
+                return 1
+            }
+            return 0
+        })
+        setCourses(sortedCourses)
+    }
     
     return (
         <div id="courseContainer">
+            <button onClick={sortByDepartment}>Sort By Department</button>
             {courseCards}
         </div>
     )

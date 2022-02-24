@@ -44,8 +44,10 @@ function StudentContainer() {
 
     return (
         <div id="studentContainer">
-            <button type="button" onClick={showNewStudentForm}>Add New Student</button>
-            <br/>
+            <label for="studentSearch">Search Student By Name</label>
+            <input type="text" onChange={(event) => setSearchText(event.target.value)}/>
+            <br />
+            
             {/* <label for="class_year">Select Class Year:</label>
             <select name="class_year" id="class_year_filter" onChange={e => setSelectedYear(e.target.value)}>
                 <option value="2022">2022</option>
@@ -53,9 +55,7 @@ function StudentContainer() {
                 <option value="2024">2024</option>
                 <option value="2025">2025</option>
             </select> */}
-            <label for="studentSearch">Search Student By Name</label>
-            <input type="text" placeholder="Search Student by Name" onChange={(event) => setSearchText(event.target.value)}/>
-            
+            <button type="button" onClick={showNewStudentForm}>Add New Student</button>
             {showForm ? <AddStudentForm /> : null }
             {studentCards}
         </div>
