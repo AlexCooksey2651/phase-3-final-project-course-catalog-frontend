@@ -5,10 +5,10 @@ function Student({ student, onDeleteStudent, onEditStudent }) {
     const { id, first_name, last_name, class_year, student_courses } = student
     const [isEditing, setIsEditing] = useState(false)
     
-    function showEditStudentForm(event) {
-        console.log(event.target.parentNode)
-        setIsEditing(!isEditing)
-    }
+    // function showEditStudentForm(event) {
+    //     // console.log(event.target.parentNode)
+    //     setIsEditing(!isEditing)
+    // }
 
     function handleDeleteStudent(event) {
         fetch(`http://localhost:9292/students/${id}`, {
@@ -23,7 +23,7 @@ function Student({ student, onDeleteStudent, onEditStudent }) {
             <h3>Class Year: {class_year}</h3>
             <div>
                 <h4>Courses:</h4>
-                {/* <ul>
+                <ul>
                     <li>
                         {student_courses[0]["course"]["title"]}, 
                         <br />
@@ -47,9 +47,9 @@ function Student({ student, onDeleteStudent, onEditStudent }) {
                         <br />
                         Grade: {student_courses[3]["grade"]} %
                     </li>
-                </ul> */}
+                </ul>
             </div>
-            <button className="editStudentBtn" type="button" onClick={showEditStudentForm}>{isEditing? "Done Editing" : "Edit Student Information"}</button>
+            <button className="editStudentBtn" type="button" onClick={() => setIsEditing(!isEditing)}>{isEditing? "Done Editing" : "Edit Student Information"}</button>
             {isEditing? <EditStudentForm student={student} onEditStudent={onEditStudent}/> : null}
             <br/>
             <br/>

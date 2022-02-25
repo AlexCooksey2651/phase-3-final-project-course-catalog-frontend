@@ -124,3 +124,18 @@ body {
   width: 30%;
   margin: auto;
 }
+
+#editStudentForm, #editCourseForm {
+  font-size: 1.1em;
+  padding: 5px;
+}
+
+.departmentCard h1,
+.departmentCard button {
+  display: inline;
+  padding: 20px;
+}
+
+.departmentCard button {
+  align-content: center;
+}

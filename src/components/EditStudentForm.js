@@ -28,7 +28,7 @@ function EditStudentForm({ student, onEditStudent }) {
   }
 
   return (
-    <form onSubmit={handleEditStudent}>
+    <form id="editStudentForm" onSubmit={handleEditStudent}>
         <label for="first_name">First Name:</label>
             <input required
                 type="text"

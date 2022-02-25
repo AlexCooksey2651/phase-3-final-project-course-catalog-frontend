@@ -14,16 +14,16 @@ function StudentContainer() {
             .then(students => setStudents(students))
     }, [])
 
-    const filteredStudents = () => {
-        if (selectedYear !== "") {
-            return students.filter(student => {
-                console.log(student.class_year)
-                console.log(selectedYear)
-                return student.class_year === selectedYear
-            })
-        }
-        return students
-    }
+    // const filteredStudents = () => {
+    //     if (selectedYear !== "") {
+    //         return students.filter(student => {
+    //             console.log(student.class_year)
+    //             console.log(selectedYear)
+    //             return student.class_year === selectedYear
+    //         })
+    //     }
+    //     return students
+    // }
 
     const searchedStudents = students.filter(student => {
         if (student.first_name.toLowerCase().includes(searchText.toLowerCase()) || student.last_name.toLowerCase().includes(searchText.toLowerCase())) {
@@ -72,12 +72,12 @@ function StudentContainer() {
             <br />
             <br />
             <label className="classYearFilter">Select Class Year:</label>
-            <select className="classYearFilter" name="class_year" onChange={e => setSelectedYear(e.target.value)}>
+            {/* <select className="classYearFilter" name="class_year" onChange={e => setSelectedYear(e.target.value)}>
                 <option value="2022">2022</option>
                 <option value="2023">2023</option>
                 <option value="2024">2024</option>
                 <option value="2025">2025</option>
-            </select>
+            </select> */}
             <br/>
             <br/>
             <button id="addStudentBtn" type="button" onClick={showNewStudentForm}>Add New Student</button>

@@ -15,9 +15,20 @@ function CourseContainer() {
 
     const courseCards = courses.map(course => {
         return (
-            <Course key={course.id} course={course} />
+            <Course key={course.id} course={course} onEditCourse={onEditCourse}/>
         )
     })
+
+    function onEditCourse(updatedCourse) {
+        const updatedCourses = courses.map(course => {
+            if (course.id === updatedCourse.id) {
+              return updatedCourse
+            } else {
+              return course
+            }
+          })
+          setCourses(updatedCourses)
+    }
 
     function sortByDepartment() {
         const sortedCourses = [...courses].sort((a, b) => {
