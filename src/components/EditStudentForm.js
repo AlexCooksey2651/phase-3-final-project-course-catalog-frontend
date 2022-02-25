@@ -1,12 +1,34 @@
 import React, { useState } from 'react'
 
-function EditStudentForm({ student }) {
-  const [firstName, setFirstName] = useState(student.first_name)
-  const [lastName, setLastName] = useState(student.last_name)
-  const [classYear, setClassYear] = useState(student.class_year)
+function EditStudentForm({ student, onEditStudent }) {
+  const { id, first_name, last_name, class_year, student_courses } = student
+  const [firstName, setFirstName] = useState(first_name)
+  const [lastName, setLastName] = useState(last_name)
+  const [classYear, setClassYear] = useState(class_year)
+
+  const body = {
+    first_name: firstName,
+    last_name: lastName,
+    class_year: classYear
+  }
+
+  function handleEditStudent(event) {
+    event.preventDefault()
+    fetch(`http://localhost:9292/students/${id}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+    })
+        .then(response => response.json())
+        .then(updatedStudent => {
+            onEditStudent(updatedStudent)
+        })
+  }
 
   return (
-    <form>
+    <form onSubmit={handleEditStudent}>
         <label for="first_name">First Name:</label>
             <input required
                 type="text"

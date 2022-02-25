@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import EditStudentForm from "./EditStudentForm";
 
-function Student({ student, onDeleteStudent }) {
+function Student({ student, onDeleteStudent, onEditStudent }) {
     const { id, first_name, last_name, class_year, student_courses } = student
     const [isEditing, setIsEditing] = useState(false)
     
@@ -23,7 +23,7 @@ function Student({ student, onDeleteStudent }) {
             <h3>Class Year: {class_year}</h3>
             <div>
                 <h4>Courses:</h4>
-                <ul>
+                {/* <ul>
                     <li>
                         {student_courses[0]["course"]["title"]}, 
                         <br />
@@ -47,10 +47,10 @@ function Student({ student, onDeleteStudent }) {
                         <br />
                         Grade: {student_courses[3]["grade"]} %
                     </li>
-                </ul>
+                </ul> */}
             </div>
             <button className="editStudentBtn" type="button" onClick={showEditStudentForm}>{isEditing? "Done Editing" : "Edit Student Information"}</button>
-            {isEditing? <EditStudentForm student={student}/> : null}
+            {isEditing? <EditStudentForm student={student} onEditStudent={onEditStudent}/> : null}
             <br/>
             <br/>
             <button className="deleteStudentBtn" type="button" onClick={handleDeleteStudent}>Delete Student</button>

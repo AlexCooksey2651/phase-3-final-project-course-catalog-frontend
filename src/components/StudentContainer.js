@@ -26,14 +26,14 @@ function StudentContainer() {
     }
 
     const searchedStudents = students.filter(student => {
-        if (student.first_name.toLowerCase().includes(searchText) || student.last_name.toLowerCase().includes(searchText)) {
+        if (student.first_name.toLowerCase().includes(searchText.toLowerCase()) || student.last_name.toLowerCase().includes(searchText.toLowerCase())) {
             return student
         }
     })
     
     const studentCards = searchedStudents.map(student => {
         return (
-            <Student key={student.id} student={student} onDeleteStudent={onDeleteStudent}/>
+            <Student key={student.id} student={student} onDeleteStudent={onDeleteStudent} onEditStudent={onEditStudent}/>
         )
     })
 
@@ -50,6 +50,17 @@ function StudentContainer() {
             return student.id !== deletedId
         })
         setStudents(remainingStudents)
+    }
+
+    function onEditStudent(updatedStudent) {
+        const updatedStudents = students.map(student => {
+            if (student.id === updatedStudent.id) {
+              return updatedStudent
+            } else {
+              return student
+            }
+          })
+          setStudents(updatedStudents)
     }
 
     return (
