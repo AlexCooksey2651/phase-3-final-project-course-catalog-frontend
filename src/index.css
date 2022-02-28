@@ -96,17 +96,19 @@ body {
 }
 
 #addStudentBtn, 
-.editStudentBtn, 
+.editStudentBtn,
+.editCourseBtn, 
 .deleteStudentBtn, 
 .updateStudentBtn,
 .showCoursesBtn {
   background-color: darkslategray;
   color: white;
   border-radius: 3%;
-  height: 30px;
+  height: 40px;
   width: 300px;
   font-size: 1.0em;
-  padding: 5px;
+  padding: 10px;
+  align-items: center;
 }
 
 .classYearFilter {

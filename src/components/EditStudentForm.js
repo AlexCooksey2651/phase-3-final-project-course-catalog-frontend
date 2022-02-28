@@ -53,7 +53,7 @@ function EditStudentForm({ student, onEditStudent }) {
                 onChange={e => setClassYear(e.target.value)}
             />
         <br/>
-        <button className="updateStudentBtn" type="submit">Confirm Updated Student Information</button>
+        <button className="updateStudentBtn" type="submit">Confirm Updates</button>
     </form>
   )
 }
