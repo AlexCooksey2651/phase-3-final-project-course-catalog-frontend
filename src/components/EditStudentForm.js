@@ -23,6 +23,7 @@ function EditStudentForm({ student, onEditStudent }) {
     })
         .then(response => response.json())
         .then(updatedStudent => {
+            console.log(updatedStudent)
             onEditStudent(updatedStudent)
         })
   }
@@ -46,7 +47,7 @@ function EditStudentForm({ student, onEditStudent }) {
             />
         <br/>
         <label for="class_year">Class Year:</label>    
-            <select name="class_year" onChange={e => setClassYear(e.target.value)}>
+            <select name="class_year" onChange={e => setClassYear(parseInt(e.target.value))}>
                     <option value="2022">2022</option>
                     <option value="2023">2023</option>
                     <option value="2024">2024</option>
@@ -58,4 +59,4 @@ function EditStudentForm({ student, onEditStudent }) {
   )
 }
 
-export default EditStudentForm
+export default EditStudentForm;

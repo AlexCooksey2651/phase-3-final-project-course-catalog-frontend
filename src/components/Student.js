@@ -5,7 +5,7 @@ function Student({ student, onDeleteStudent, onEditStudent }) {
     const { id, first_name, last_name, class_year, student_courses } = student
     const [isEditing, setIsEditing] = useState(false)
 
-    function handleDeleteStudent(event) {
+    function handleDeleteStudent() {
         fetch(`http://localhost:9292/students/${id}`, {
             method: "DELETE",
         })
@@ -13,6 +13,7 @@ function Student({ student, onDeleteStudent, onEditStudent }) {
     }
 
     const coursesToRender = () => {
+        
         if (student_courses.length > 0) {
             return student_courses.map(item => {
                 return (
@@ -35,29 +36,6 @@ function Student({ student, onDeleteStudent, onEditStudent }) {
                 <h4>Courses:</h4>
                 <ul>
                     {coursesToRender()}
-                    {/* <li>
-                        {student_courses[0]["course"]["title"]}, 
-                        <br />
-                        Grade: {student_courses[0]["grade"]} %
-                    </li>
-                    <br />
-                    <li>
-                        {student_courses[1]["course"]["title"]}
-                        <br />
-                        Grade: {student_courses[1]["grade"]} %
-                    </li>
-                    <br />
-                    <li>
-                        {student_courses[2]["course"]["title"]}
-                        <br />
-                        Grade: {student_courses[2]["grade"]} %
-                    </li>
-                    <br />
-                    <li>
-                        {student_courses[3]["course"]["title"]}
-                        <br />
-                        Grade: {student_courses[3]["grade"]} %
-                    </li> */}
                 </ul>
             </div>
             <button className="editStudentBtn" type="button" onClick={() => setIsEditing(!isEditing)}>{isEditing? "Done Editing" : "Edit Student Information"}</button>

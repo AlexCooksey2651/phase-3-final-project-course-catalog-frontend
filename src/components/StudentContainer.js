@@ -55,7 +55,6 @@ function StudentContainer() {
     }
 
     function onEditStudent(updatedStudent) {
-        
         const updatedStudents = students.map(student => {
             if (student.id === updatedStudent.id) {
                 return updatedStudent
@@ -86,7 +85,7 @@ function StudentContainer() {
             <br />
             <button id="addStudentBtn" type="button" onClick={showNewStudentForm}>Add New Student</button>
             <br />
-            {showForm ? <AddStudentForm handleAddStudent={handleNewStudent} /> : null}
+            {showForm ? <AddStudentForm handleNewStudent={handleNewStudent} /> : null}
             {students && studentCards()}
         </div>
     )
