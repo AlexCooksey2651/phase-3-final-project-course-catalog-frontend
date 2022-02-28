@@ -12,21 +12,21 @@ function AddStudentForm({ handleNewStudent }) {
   }
 
   function addNewStudent(event) {
-      event.preventDefault()
-        fetch("http://localhost:9292/students", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(body),
-        })
-            .then(response => response.json())
-            .then(newStudent => {
-                handleNewStudent(newStudent);
-                setFirstName("");
-                setLastName("");
-                setClassYear("")
-            });
+    event.preventDefault()
+    fetch("http://localhost:9292/students", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+    })
+        .then(response => response.json())
+        .then(newStudent => {
+            handleNewStudent(newStudent);
+        });
+    setFirstName("");
+    setLastName("");
+    setClassYear("")
   }
 
   return (

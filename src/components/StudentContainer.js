@@ -20,7 +20,7 @@ function StudentContainer() {
                 return student.class_year === parseInt(selectedYear)
             })
             return singleClass
-        } else { 
+        } else {
             return students
         }
     }
@@ -30,12 +30,14 @@ function StudentContainer() {
             return student
         }
     })
-    
-    const studentCards = searchedStudents.map(student => {
-        return (
-            <Student key={student.id} student={student} onDeleteStudent={onDeleteStudent} onEditStudent={onEditStudent}/>
-        )
-    })
+
+    const studentCards = () => {
+        return searchedStudents.map(student => {
+            return (
+                <Student key={student.id} student={student} onDeleteStudent={onDeleteStudent} onEditStudent={onEditStudent} />
+            )
+        })
+    }
 
     function showNewStudentForm() {
         return setShowForm(!showForm)
@@ -53,21 +55,22 @@ function StudentContainer() {
     }
 
     function onEditStudent(updatedStudent) {
+        
         const updatedStudents = students.map(student => {
             if (student.id === updatedStudent.id) {
-              return updatedStudent
+                return updatedStudent
             } else {
-              return student
+                return student
             }
-          })
-          setStudents(updatedStudents)
+        })
+        setStudents(updatedStudents)
     }
 
     return (
         <div id="studentContainer">
             <div id="studentSearch">
                 <label for="studentSearch">Search Student By Name:</label>
-                <input type="text" placeholder="Enter Name Here" onChange={(event) => setSearchText(event.target.value)}/>
+                <input type="text" placeholder="Enter Name Here" onChange={(event) => setSearchText(event.target.value)} />
             </div>
             <br />
             <br />
@@ -79,12 +82,12 @@ function StudentContainer() {
                 <option value="2024">2024</option>
                 <option value="2025">2025</option>
             </select>
-            <br/>
-            <br/>
+            <br />
+            <br />
             <button id="addStudentBtn" type="button" onClick={showNewStudentForm}>Add New Student</button>
-            <br/>
-            {showForm ? <AddStudentForm handleAddStudent={handleNewStudent}/> : null }
-            {studentCards}
+            <br />
+            {showForm ? <AddStudentForm handleAddStudent={handleNewStudent} /> : null}
+            {students && studentCards()}
         </div>
     )
 }

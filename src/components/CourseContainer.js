@@ -6,28 +6,30 @@ function CourseContainer() {
     const [deptOrder, setDeptOrder] = useState(true)
     const [nameOrder, setNameOrder] = useState(true)
     const [numOrder, setNumOrder] = useState(true)
-    
+
     useEffect(() => {
         fetch('http://localhost:9292/courses')
             .then(response => response.json())
             .then(courses => setCourses(courses))
     }, [])
 
-    const courseCards = courses.map(course => {
-        return (
-            <Course key={course.id} course={course} onEditCourse={onEditCourse}/>
-        )
-    })
+    const courseCards = () => {
+        return courses.map(course => {
+            return (
+                <Course key={course.id} course={course} onEditCourse={onEditCourse} />
+            )
+        })
+    }
 
     function onEditCourse(updatedCourse) {
         const updatedCourses = courses.map(course => {
             if (course.id === updatedCourse.id) {
-              return updatedCourse
+                return updatedCourse
             } else {
-              return course
+                return course
             }
-          })
-          setCourses(updatedCourses)
+        })
+        setCourses(updatedCourses)
     }
 
     function sortByDepartment() {
@@ -101,13 +103,13 @@ function CourseContainer() {
         setNumOrder(!numOrder)
         setCourses(sortedCourses)
     }
-    
+
     return (
         <div id="courseContainer">
             <button id="titleSortBtn" onClick={sortByName}>Sort By Name</button>
             <button id="deptSortBtn" onClick={sortByDepartment}>Sort By Department</button>
             <button id="enrollmentSortBtn" onClick={sortByEnrollment}>Sort By Popularity</button>
-            {courseCards}
+            {courseCards()}
         </div>
     )
 }

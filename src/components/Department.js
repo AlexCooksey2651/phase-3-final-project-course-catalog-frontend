@@ -16,11 +16,6 @@ function Department ({ department }) {
             <h1>{name}</h1>
             <button className="showCoursesBtn" onClick={() => setShowCourseList(!showCourseList)}>Show Course List</button>
             {showCourseList ? <CourseList courses={courses} /> : null}
-            {/* <div>
-                <b>Courses:</b>
-                <br/>
-                {showCourseList ? courseList : null }
-            </div>  */}
         </div>
     )
 }

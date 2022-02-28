@@ -141,3 +141,7 @@ body {
 .departmentCard button {
   align-content: center;
 }
+
+.studentCourse {
+  padding: 10px;
+}
