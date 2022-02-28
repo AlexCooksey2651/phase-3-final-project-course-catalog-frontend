@@ -44,6 +44,7 @@ function StudentContainer() {
     }
 
     function handleNewStudent(newStudent) {
+        console.log(newStudent)
         setStudents([...students, newStudent])
     }
 
