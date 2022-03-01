@@ -22,10 +22,7 @@ function EditStudentForm({ student, onEditStudent }) {
         body: JSON.stringify(body),
     })
         .then(response => response.json())
-        .then(updatedStudent => {
-            console.log(updatedStudent)
-            onEditStudent(updatedStudent)
-        })
+        .then(updatedStudent => onEditStudent(updatedStudent))
   }
 
   return (
